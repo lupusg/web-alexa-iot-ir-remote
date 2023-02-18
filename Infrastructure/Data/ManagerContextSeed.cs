@@ -14,7 +14,7 @@ namespace Infrastructure.Data
                 context.Signals.AddRange(signals);
             }
 
-            if (context.ChangeTracker.HasChanges()) await context.saveChangesAsync();
+            if (context.ChangeTracker.HasChanges()) await context.SaveChangesAsync();
         }
     }
 }

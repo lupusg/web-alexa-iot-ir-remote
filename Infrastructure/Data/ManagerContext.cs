@@ -17,10 +17,5 @@ namespace Infrastructure.Data
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
-
-        internal Task saveChangesAsync()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
