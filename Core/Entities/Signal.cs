@@ -1,9 +1,12 @@
 namespace Core.Entities
 {
-    public class Signal
+    public class Signal : BaseEntity
     {
-        public int Id { get; private set; }
         public string Name { get; set; }
+        public string IrData { get; set; }
+        
+        public string AssignedButton { get; set; }
 
+        public DateTime CreatedAt { get; set; }
     }
 }
