@@ -16,6 +16,7 @@ builder.Services.AddDbContext<ManagerContext>(options =>
 });
 
 builder.Services.AddScoped<ISignalRepository, SignalRepository>();
+builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
 var app = builder.Build();
 

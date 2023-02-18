@@ -10,23 +10,23 @@ namespace API.Controllers
     [Route("api/[controller]")]
     public class SignalsController : ControllerBase
     {
-        private readonly ISignalRepository _repo;
-        public SignalsController(ISignalRepository repo)
+        private readonly IGenericRepository<Signal> _signalsRepo;
+        public SignalsController(IGenericRepository<Signal> signalsRepo)
         {
-            _repo = repo;
+            _signalsRepo = signalsRepo;
         }
 
         [HttpGet]
         public async Task<ActionResult<List<Signal>>> GetSignal()
         {
-            var signals = await _repo.GetSignalsAsync();
+            var signals = await _signalsRepo.ListAllAsync();
             return Ok(signals);
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<Signal>> GetSignal(int id)
         {
-            return await _repo.GetSignalByIdAsync(id);
+            return await _signalsRepo.GetByIdAsync(id);
         }
     }
 }
