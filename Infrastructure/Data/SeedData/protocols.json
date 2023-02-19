@@ -1,0 +1,122 @@
+[
+  {
+    "Id": 1,
+    "Name": "NEC"
+  },
+  {
+    "Id": 2,
+    "Name": "Sony"
+  },
+  {
+    "Id": 3,
+    "Name": "RC5"
+  },
+  {
+    "Id": 4,
+    "Name": "RC6"
+  },
+  {
+    "Id": 5,
+    "Name": "Panasonic"
+  },
+  {
+    "Id": 6,
+    "Name": "JVC"
+  },
+  {
+    "Id": 7,
+    "Name": "Sanyo"
+  },
+  {
+    "Id": 8,
+    "Name": "Mitsubishi"
+  },
+  {
+    "Id": 9,
+    "Name": "Sharp"
+  },
+  {
+    "Id": 10,
+    "Name": "Denon"
+  },
+  {
+    "Id": 11,
+    "Name": "Philips RCMM"
+  },
+  {
+    "Id": 12,
+    "Name": "Philips RC5X"
+  },
+  {
+    "Id": 13,
+    "Name": "Thomson"
+  },
+  {
+    "Id": 14,
+    "Name": "Samsung"
+  },
+  {
+    "Id": 15,
+    "Name": "LG"
+  },
+  {
+    "Id": 16,
+    "Name": "RCA"
+  },
+  {
+    "Id": 17,
+    "Name": "X10"
+  },
+  {
+    "Id": 18,
+    "Name": "Nokia"
+  },
+  {
+    "Id": 19,
+    "Name": "MCE"
+  },
+  {
+    "Id": 20,
+    "Name": "Kaseikyo"
+  },
+  {
+    "Id": 21,
+    "Name": "SBUS"
+  },
+  {
+    "Id": 22,
+    "Name": "MIT CABLE"
+  },
+  {
+    "Id": 23,
+    "Name": "HCS"
+  },
+  {
+    "Id": 24,
+    "Name": "NEC APPLE"
+  },
+  {
+    "Id": 25,
+    "Name": "LEGO PF"
+  },
+  {
+    "Id": 26,
+    "Name": "WHYNTER"
+  },
+  {
+    "Id": 27,
+    "Name": "Integra"
+  },
+  {
+    "Id": 28,
+    "Name": "NAD"
+  },
+  {
+    "Id": 29,
+    "Name": "LUTRON"
+  },
+  {
+    "Id": 30,
+    "Name": "Pronto"
+  }
+]

@@ -14,6 +14,13 @@ namespace Infrastructure.Data
                 context.Signals.AddRange(signals);
             }
 
+            if(!context.SignalProtocols.Any())
+            {
+                var signalProtocolsData = File.ReadAllText("../Infrastructure/Data/SeedData/protocols.json");
+                var signalProtocols = JsonSerializer.Deserialize<List<SignalProtocol>>(signalProtocolsData);
+                context.SignalProtocols.AddRange(signalProtocols);
+            }
+
             if (context.ChangeTracker.HasChanges()) await context.SaveChangesAsync();
         }
     }

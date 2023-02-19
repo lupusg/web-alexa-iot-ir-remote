@@ -12,6 +12,8 @@ namespace Infrastructure.Data
 
         public DbSet<Signal> Signals { get; set; }
 
+        public DbSet<SignalProtocol> SignalProtocols { get; set; }
+
         protected void onModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

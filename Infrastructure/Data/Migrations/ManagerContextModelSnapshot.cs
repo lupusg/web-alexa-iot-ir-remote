@@ -35,9 +35,39 @@ namespace Infrastructure.Data.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("SignalProtocolId")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("Id");
 
+                    b.HasIndex("SignalProtocolId");
+
                     b.ToTable("Signals");
+                });
+
+            modelBuilder.Entity("Core.Entities.SignalProtocol", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SignalProtocols");
+                });
+
+            modelBuilder.Entity("Core.Entities.Signal", b =>
+                {
+                    b.HasOne("Core.Entities.SignalProtocol", "SignalProtocol")
+                        .WithMany()
+                        .HasForeignKey("SignalProtocolId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("SignalProtocol");
                 });
 #pragma warning restore 612, 618
         }

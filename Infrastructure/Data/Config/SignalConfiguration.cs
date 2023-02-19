@@ -15,6 +15,9 @@ namespace Infrastructure.Data.Config
             builder.Property(p => p.Id).IsRequired();
             builder.Property(p => p.Name).HasMaxLength(100);
             builder.Property(p => p.CreatedAt).HasColumnType("datetime");
+
+            builder.HasOne(b => b.SignalProtocol).WithMany()
+            .HasForeignKey(pi => pi.SignalProtocolId);
         }
     }
 }
