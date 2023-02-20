@@ -11,9 +11,12 @@ namespace API.Controllers
     public class SignalsController : ControllerBase
     {
         private readonly IGenericRepository<Signal> _signalsRepo;
-        public SignalsController(IGenericRepository<Signal> signalsRepo)
+        private readonly IGenericRepository<SignalProtocol> _signalProtocolsRepo;
+        public SignalsController(IGenericRepository<Signal> signalsRepo,
+         IGenericRepository<SignalProtocol> signalProtocolsRepo)
         {
             _signalsRepo = signalsRepo;
+            _signalProtocolsRepo = signalProtocolsRepo;
         }
 
         [HttpGet]
@@ -27,6 +30,13 @@ namespace API.Controllers
         public async Task<ActionResult<Signal>> GetSignal(int id)
         {
             return await _signalsRepo.GetByIdAsync(id);
+        }
+
+        [HttpGet("protocols")]
+        public async Task<ActionResult<List<SignalProtocol>>> GetSignalProtocols()
+        {
+            var signalProtocols = await _signalProtocolsRepo.ListAllAsync();
+            return Ok(signalProtocols);
         }
     }
 }

@@ -6,5 +6,6 @@ namespace Core.Interfaces
     {
         Task<Signal> GetSignalByIdAsync(int id);
         Task<IReadOnlyList<Signal>> GetSignalsAsync();
+        Task<IReadOnlyList<SignalProtocol>> GetSignalProtocolsAsync();
     }
 }
