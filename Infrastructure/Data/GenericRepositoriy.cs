@@ -24,7 +24,7 @@ namespace Infrastructure.Data
 
         public async Task<IReadOnlyList<T>> ListAllAsync()
         {
-            return await _context.Set<T>().Include.ToListAsync();
+            return await _context.Set<T>().ToListAsync();
         }
     }
 }
