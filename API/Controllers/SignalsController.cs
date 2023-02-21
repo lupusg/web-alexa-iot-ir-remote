@@ -1,5 +1,6 @@
 using Core.Entities;
 using Core.Interfaces;
+using Core.Specifications;
 using Infrastructure.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -22,14 +23,16 @@ namespace API.Controllers
         [HttpGet]
         public async Task<ActionResult<List<Signal>>> GetSignal()
         {
-            var signals = await _signalsRepo.ListAllAsync();
+            var spec = new SignalsWithProtocolsSpecification();
+            var signals = await _signalsRepo.ListAsync(spec);
             return Ok(signals);
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<Signal>> GetSignal(int id)
         {
-            return await _signalsRepo.GetByIdAsync(id);
+            var spec = new SignalsWithProtocolsSpecification(id);
+            return await _signalsRepo.GetEntityWithSpec(spec);
         }
 
         [HttpGet("protocols")]

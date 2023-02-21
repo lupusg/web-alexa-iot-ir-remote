@@ -21,6 +21,10 @@ namespace Infrastructure.Data
 
         public async Task<IReadOnlyList<Signal>> GetSignalsAsync()
         {
+            var typeId = 1;
+
+            var singnals = _context.Signals.Where(x => x.SignalProtocolId == typeId).Include(x => x.SignalProtocol).ToListAsync();
+
             return await _context.Signals
                 .Include(s => s.SignalProtocol)
                 .ToListAsync();
