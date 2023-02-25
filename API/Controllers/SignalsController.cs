@@ -1,5 +1,6 @@
 using API.Dto;
 using API.Errors;
+using API.Helpers;
 using AutoMapper;
 using Core.Entities;
 using Core.Interfaces;
@@ -25,14 +26,21 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IReadOnlyList<SignalToReturnDto>>> GetSignal()
+        public async Task<ActionResult<Pagination<SignalToReturnDto>>> GetSignal(
+            [FromQuery] SignalsSpecParams signalParams)
         {
-            var spec = new SignalsWithProtocolsSpecification();
+            var spec = new SignalsWithProtocolsSpecification(signalParams);
+
+            var countSpec = new SignalsWithFiltersForCountSpecification(signalParams);
+
+            var totalItems = await _signalsRepo.CountAsync(countSpec);
 
             var signals = await _signalsRepo.ListAsync(spec);
 
-            return Ok(_mapper
-                .Map<IReadOnlyList<Signal>, IReadOnlyList<SignalToReturnDto>>(signals));
+            var data = _mapper.Map<IReadOnlyList<Signal>, IReadOnlyList<SignalToReturnDto>>(signals);
+
+            return Ok(new Pagination<SignalToReturnDto>(signalParams.PageIndex,
+                signalParams.PageSize, totalItems, data));
         }
 
         [HttpGet("{id}")]
@@ -56,7 +64,7 @@ namespace API.Controllers
         public async Task<ActionResult<List<SignalProtocol>>> GetSignalProtocols()
         {
             var signalProtocols = await _signalProtocolsRepo.ListAllAsync();
-            
+
             return Ok(signalProtocols);
         }
     }
