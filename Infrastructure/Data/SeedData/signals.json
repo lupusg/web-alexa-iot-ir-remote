@@ -46,6 +46,150 @@
     "AssignedButton": "custom_switch6",
     "CreatedAt": "2020-07-01T12:00:00Z",
     "SignalProtocolId": 8
+  },
+  {
+    "Id": 7,
+    "Name": "Turn on Desk Lamp",
+    "IrData": "754 242 542 813 564 426 575 128 585 949 279 909 213 603 646 302 731 380 213 457 234 136 146 556 116 594 780 755 418 421 485 104 549 886 184 998 559 994 622 123 233 103 422 415 330 363 409 997 907 955 966 933 704 980 120 232 614 851 793 739 984 883 249 418 530 372 567 390 782 701 803 902 908 241 380 687 909 419 852 690 658 387 539 310 756 814 817 437 663 296 280 584 373 585 809 720 649 674 980 306 971 628 464 879 983 437 528 534 953 237 214 249 663 576 844 498 906 251 137 670 341 961 322 391 863 685 592 642 788 190 866 279 464 457 915 825 836 244 574 683 627 723 270 159 221 242 238 360 694 307 252 902 165 205 998 803 331 532 107 382 397 235 863 139 522 689 118 975 898 710 820 770 414 382 397 869 298 603 625 384 717 492 988 631 734 517 750 572 577 688 895 583 161 759 137 732 970 812 554 830",
+    "AssignedButton": "custom_switch7",
+    "CreatedAt": "2022-07-01T12:00:00Z",
+    "SignalProtocolId": 29
+  },
+  {
+    "Id": 8,
+    "Name": "Turn off Air Purifier",
+    "IrData": "754 242 542 813 564 426 575 128 585 949 279 909 213 603 646 302 731 380 213 457 234 136 146 556 116 594 780 755 418 421 485 104 549 886 184 998 559 994 622 123 233 103 422 415 330 363 409 997 907 955 966 933 704 980 120 232 614 851 793 739 984 883 249 418 530 372 567 390 782 701 803 902 908 241 380 687 909 419 852 690 658 387 539 310 756 814 817 437 663 296 280 584 373 585 809 720 649 674 980 306 971 628 464 879 983 437 528 534 953 237 214 249 663 576 844 498 906 251 137 670 341 961 322 391 863 685 592 642 788 190 866 279 464 457 915 825 836 244 574 683 627 723 270 159 221 242 238 360 694 307 252 902 165 205 998 803 331 532 107 382 397 235 863 139 522 689 118 975 898 710 820 770 414 382 397 869 298 603 625 384 717 492 988 631 734 517 750 572 577 688 895 583 161 759 137 732 970 812 554 830",
+    "AssignedButton": "custom_switch8",
+    "CreatedAt": "2022-07-01T12:00:00Z",
+    "SignalProtocolId": 5
+  },
+  {
+    "Id": 9,
+    "Name": "Turn on TV",
+    "IrData": "754 242 542 813 564 426 575 128 585 949 279 909 213 603 646 302 731 380 213 457 234 136 146 556 116 594 780 755 418 421 485 104 549 886 184 998 559 994 622 123 233 103 422 415 330 363 409 997 907 955 966 933 704 980 120 232 614 851 793 739 984 883 249 418 530 372 567 390 782 701 803 902 908 241 380 687 909 419 852 690 658 387 539 310 756 814 817 437 663 296 280 584 373 585 809 720 649 674 980 306 971 628 464 879 983 437 528 534 953 237 214 249 663 576 844 498 906 251 137 670 341 961 322 391 863 685 592 642 788 190 866 279 464 457 915 825 836 244 574 683 627 723 270 159 221 242 238 360 694 307 252 902 165 205 998 803 331 532 107 382 397 235 863 139 522 689 118 975 898 710 820 770 414 382 397 869 298 603 625 384 717 492 988 631 734 517 750 572 577 688 895 583 161 759 137 732 970 812 554 830",
+    "AssignedButton": "custom_switch9",
+    "CreatedAt": "2022-07-01T12:00:00Z",
+    "SignalProtocolId": 22
+  },
+  {
+    "Id": 10,
+    "Name": "Turn off Ceiling Fan",
+    "IrData": "",
+    "AssignedButton": "custom_switch10",
+    "CreatedAt": "2022-07-01T12:00:00Z",
+    "SignalProtocolId": 27
+  },
+  {
+    "Id": 11,
+    "Name": "Turn on Stereo System",
+    "IrData": "",
+    "AssignedButton": "custom_switch11",
+    "CreatedAt": "2022-07-01T12:00:00Z",
+    "SignalProtocolId": 8
+  },
+  {
+    "Id": 12,
+    "Name": "Turn off Desk Fan",
+    "IrData": "",
+    "AssignedButton": "custom_switch12",
+    "CreatedAt": "2022-07-01T12:00:00Z",
+    "SignalProtocolId": 18
+  },
+  {
+    "Id": 13,
+    "Name": "Turn on Heater",
+    "IrData": "",
+    "AssignedButton": "custom_switch13",
+    "CreatedAt": "2022-07-01T12:00:00Z",
+    "SignalProtocolId": 24
+  },
+  {
+    "Id": 14,
+    "Name": "Turn off Air Conditioner",
+    "IrData": "",
+    "AssignedButton": "custom_switch14",
+    "CreatedAt": "2022-07-01T12:00:00Z",
+    "SignalProtocolId": 28
+  },
+  {
+    "Id": 15,
+    "Name": "Turn on Humidifier",
+    "IrData": "",
+    "AssignedButton": "custom_switch15",
+    "CreatedAt": "2022-07-01T12:00:00Z",
+    "SignalProtocolId": 11
+  },
+  {
+    "Id": 16,
+    "Name": "Turn off Desk Lamp",
+    "IrData": "",
+    "AssignedButton": "custom_switch16",
+    "CreatedAt": "2022-07-01T12:00:00Z",
+    "SignalProtocolId": 7
+  },
+  {
+    "Id": 17,
+    "Name": "Turn on Air Conditioner",
+    "IrData": "",
+    "AssignedButton": "custom_switch17",
+    "CreatedAt": "2022-07-01T12:00:00Z",
+    "SignalProtocolId": 26
+  },
+  {
+    "Id": 18,
+    "Name": "Turn off Heater",
+    "IrData": "",
+    "AssignedButton": "custom_switch18",
+    "CreatedAt": "2022-07-01T12:00:00Z",
+    "SignalProtocolId": 25
+  },
+  {
+    "Id": 19,
+    "Name": "Turn on Air Purifier",
+    "IrData": "",
+    "AssignedButton": "custom_switch19",
+    "CreatedAt": "2022-07-01T12:00:00Z",
+    "SignalProtocolId": 4
+  },
+  {
+    "Id": 20,
+    "Name": "Turn off Humidifier",
+    "IrData": "",
+    "AssignedButton": "custom_switch20",
+    "CreatedAt": "2022-07-01T12:00:00Z",
+    "SignalProtocolId": 10
+  },
+  {
+    "Id": 21,
+    "Name": "Turn off Stereo System",
+    "IrData": "",
+    "AssignedButton": "custom_switch21",
+    "CreatedAt": "2022-07-01T12:00:00Z",
+    "SignalProtocolId": 21
+  },
+  {
+    "Id": 22,
+    "Name": "Turn on Desk Fan",
+    "IrData": "",
+    "AssignedButton": "custom_switch22",
+    "CreatedAt": "2022-07-01T12:00:00Z",
+    "SignalProtocolId": 17
+  },
+  {
+    "Id": 23,
+    "Name": "Turn off TV",
+    "IrData": "",
+    "AssignedButton": "custom_switch23",
+    "CreatedAt": "2022-07-01T12:00:00Z",
+    "SignalProtocolId": 12
+  },
+  {
+    "Id": 24,
+    "Name": "Turn on Ceiling Fan",
+    "IrData": "",
+    "AssignedButton": "custom_switch24",
+    "CreatedAt": "2022-07-01T12:00:00Z",
+    "SignalProtocolId": 12
   }
 ]
 
