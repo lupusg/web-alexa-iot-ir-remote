@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Signal } from '../models/signal';
+import { Protocol } from '../shared/models/protocol';
+import { Signal } from '../shared/models/signal';
 import { ManagerService } from './manager.service';
 
 @Component({
@@ -9,14 +10,26 @@ import { ManagerService } from './manager.service';
 })
 export class ManagerComponent implements OnInit {
   signals: Signal[] = [];
+  protocols: Protocol[] = [];
 
-  constructor (private managerService: ManagerService) {}
+  constructor(private managerService: ManagerService) {}
 
   ngOnInit(): void {
+    this.getSignals();
+    this.getProtocols();
+  }
+
+  getSignals() {
     this.managerService.getSignals().subscribe({
-      next: (response: any) => {
-        this.signals = response.data;
-      }
+      next: (response) => this.signals = response.data,
+      error: (error) => console.log(error)
+    });
+  }
+
+  getProtocols() {
+    this.managerService.getProtocols().subscribe({
+      next: (response) => this.protocols = response,
+      error: (error) => console.log(error)
     });
   }
 }
