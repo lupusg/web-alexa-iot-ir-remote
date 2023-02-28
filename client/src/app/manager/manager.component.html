@@ -9,9 +9,7 @@
 
       <h5 class="ms-sm-3">Protocols</h5>
       <ul class="list-group">
-        <li class="list-group-item active"><span>List 3</span></li>
-        <li class="list-group-item"><span>Name sadsad</span></li>
-        <li class="list-group-item"><span>List Group Item 3</span></li>
+        <li class="list-group-item" *ngFor="let protocol of protocols">{{ protocol.name }}</li>
       </ul>
     </section>
     <section class="col-9">
@@ -30,16 +28,16 @@
           <table class="table">
             <thead>
               <tr>
-                <th>ID</th>
+                <th>#</th>
                 <th>Name</th>
                 <th>Data</th>
                 <th>Assigned Button</th>
                 <th>Created At</th>
+                <th>Protocol</th>
               </tr>
             </thead>
-            <tbody>
-              <tr></tr>
-              <tr></tr>
+            <tbody *ngFor="let signal of signals">
+              <tr app-signal-item [signal]="signal"></tr>
             </tbody>
           </table>
         </div>
