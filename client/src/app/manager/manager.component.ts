@@ -11,6 +11,16 @@ import { ManagerService } from './manager.service';
 export class ManagerComponent implements OnInit {
   signals: Signal[] = [];
   protocols: Protocol[] = [];
+  protocolIdSelected = 0;
+  sortSelected = 'dateDesc';
+  sortOptions = [
+    { name: 'Alphabetical', value: 'nameAsc' },
+    { name: 'Alphabetical descendent', value: 'nameDesc' },
+    { name: 'Protocol', value: 'protocolAsc' },
+    { name: 'Protocol descendent', value: 'protocolDesc' },
+    { name: 'New', value: 'dateDesc' },
+    { name: 'Old', value: 'dateAsc' },
+  ];
 
   constructor(private managerService: ManagerService) {}
 
@@ -20,16 +30,28 @@ export class ManagerComponent implements OnInit {
   }
 
   getSignals() {
-    this.managerService.getSignals().subscribe({
-      next: (response) => this.signals = response.data,
-      error: (error) => console.log(error)
+    this.managerService.getSignals(this.protocolIdSelected, this.sortSelected).subscribe({
+      next: (response) => (this.signals = response.data),
+      error: (error) => console.log(error),
     });
   }
 
   getProtocols() {
     this.managerService.getProtocols().subscribe({
-      next: (response) => this.protocols = response,
-      error: (error) => console.log(error)
+      next: (response) =>
+        (this.protocols = [{ id: 0, name: 'All' }, ...response]),
+      error: (error) => console.log(error),
     });
+  }
+
+  onProtocolSelected(protocolId: number) {
+    this.protocolIdSelected = protocolId;
+    this.getSignals();
+  }
+
+  onSortSelected($event: any) {
+    this.sortSelected = $event.target.value;
+    console.log($event.target.value);
+    this.getSignals();
   }
 }

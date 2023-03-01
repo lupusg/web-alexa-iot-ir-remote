@@ -2,14 +2,18 @@
   <div class="row">
     <section class="col-3">
       <h5 class="ms-3">Sort</h5>
-      <select class="form-select mb-4">
-        <option value="1" selected>Alphabetical</option>
-        <option value="2">Newest created</option>
+      <select class="form-select mb-4" (change)="onSortSelected($event)">
+        <option *ngFor="let sort of sortOptions" [value]="sort.value">{{sort.name}}</option>
       </select>
 
       <h5 class="ms-sm-3">Protocols</h5>
       <ul class="list-group">
-        <li class="list-group-item" *ngFor="let protocol of protocols">{{ protocol.name }}</li>
+        <li class="list-group-item" 
+        *ngFor="let protocol of protocols"
+        [class.active]="protocol.id === protocolIdSelected"
+        [value]="protocol.id"
+        (click)="onProtocolSelected(protocol.id)"
+        >{{ protocol.name }}</li>
       </ul>
     </section>
     <section class="col-9">
