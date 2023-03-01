@@ -3,48 +3,69 @@
     <section class="col-3">
       <h5 class="ms-3">Sort</h5>
       <select class="form-select mb-4" (change)="onSortSelected($event)">
-        <option *ngFor="let sort of sortOptions" [value]="sort.value">{{sort.name}}</option>
+        <option *ngFor="let sort of sortOptions" [value]="sort.value">
+          {{ sort.name }}
+        </option>
       </select>
 
       <h5 class="ms-sm-3">Protocols</h5>
       <ul class="list-group">
-        <li class="list-group-item" 
-        *ngFor="let protocol of protocols"
-        [class.active]="protocol.id === protocolIdSelected"
-        [value]="protocol.id"
-        (click)="onProtocolSelected(protocol.id)"
-        >{{ protocol.name }}</li>
+        <li
+          class="list-group-item"
+          *ngFor="let protocol of protocols"
+          [class.active]="protocol.id === managerParams.protocolId"
+          [value]="protocol.id"
+          (click)="onProtocolSelected(protocol.id)"
+        >
+          {{ protocol.name }}
+        </li>
       </ul>
     </section>
     <section class="col-9">
       <div class="d-flex justify-content-between align-items center pb-2">
-        <header class="ps-xl-0 pt-xl-4">
-          <span
-            >Showing <strong>30</strong> of <strong>50</strong> results</span
-          >
-        </header>
+        <app-paging-header 
+        [totalCount]="totalCount" 
+        [pageIndex]="managerParams.pageIndex" 
+        [pageSize]="managerParams.pageSize">
+
+        </app-paging-header>
         <div class="d-flex mt-2">
-          <input type="text" placeholder="Search" class="form-control me-2">
+          <input type="text" placeholder="Search" class="form-control me-2" />
           <button class="btn btn-outline-primary mx-2">Search</button>
         </div>
       </div>
-        <div class="table-responsive">
-          <table class="table">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Name</th>
-                <th>Data</th>
-                <th>Assigned Button</th>
-                <th>Created At</th>
-                <th>Protocol</th>
-              </tr>
-            </thead>
-            <tbody *ngFor="let signal of signals">
-              <tr app-signal-item [signal]="signal"></tr>
-            </tbody>
-          </table>
-        </div>
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Data</th>
+              <th>Assigned Button</th>
+              <th>Created At</th>
+              <th>Protocol</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let signal of signals">
+            <tr app-signal-item [signal]="signal"></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="div d-flex justify-content-center">
+        <pagination
+          *ngIf="totalCount > 0"
+          [boundaryLinks]="true"
+          [totalItems]="totalCount"
+          [itemsPerPage]="managerParams.pageSize"
+          [maxSize]="10"
+          (pageChanged)="onPageChanged($event)"
+          previousText="&lsaquo;"
+          nextText="&rsaquo;"
+          firstText="&laquo;"
+          lastText="&raquo;"
+        >
+        </pagination>
+      </div>
     </section>
   </div>
 </div>

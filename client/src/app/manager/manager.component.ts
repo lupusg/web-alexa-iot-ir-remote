@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ManagerParams } from '../shared/models/managerParams';
 import { Protocol } from '../shared/models/protocol';
 import { Signal } from '../shared/models/signal';
 import { ManagerService } from './manager.service';
@@ -11,8 +12,7 @@ import { ManagerService } from './manager.service';
 export class ManagerComponent implements OnInit {
   signals: Signal[] = [];
   protocols: Protocol[] = [];
-  protocolIdSelected = 0;
-  sortSelected = 'dateDesc';
+  managerParams = new ManagerParams();
   sortOptions = [
     { name: 'Alphabetical', value: 'nameAsc' },
     { name: 'Alphabetical descendent', value: 'nameDesc' },
@@ -21,6 +21,7 @@ export class ManagerComponent implements OnInit {
     { name: 'New', value: 'dateDesc' },
     { name: 'Old', value: 'dateAsc' },
   ];
+  totalCount = 0;
 
   constructor(private managerService: ManagerService) {}
 
@@ -30,8 +31,13 @@ export class ManagerComponent implements OnInit {
   }
 
   getSignals() {
-    this.managerService.getSignals(this.protocolIdSelected, this.sortSelected).subscribe({
-      next: (response) => (this.signals = response.data),
+    this.managerService.getSignals(this.managerParams).subscribe({
+      next: (response) => {
+        this.signals = response.data
+        this.managerParams.pageIndex = response.pageIndex;
+        this.managerParams.pageSize = response.pageSize;
+        this.totalCount = response.count;
+      },
       error: (error) => console.log(error),
     });
   }
@@ -45,13 +51,20 @@ export class ManagerComponent implements OnInit {
   }
 
   onProtocolSelected(protocolId: number) {
-    this.protocolIdSelected = protocolId;
+    this.managerParams.protocolId = protocolId;
     this.getSignals();
   }
 
   onSortSelected($event: any) {
-    this.sortSelected = $event.target.value;
+    this.managerParams.sort = $event.target.value;
     console.log($event.target.value);
     this.getSignals();
+  }
+
+  onPageChanged($event: any) {
+    if (this.managerParams.pageIndex !== $event) {
+      this.managerParams.pageIndex = $event.page;
+      this.getSignals();
+    }
   }
 }

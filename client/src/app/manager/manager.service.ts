@@ -1,5 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ManagerParams } from '../shared/models/managerParams';
 import { Pagination } from '../shared/models/pagination';
 import { Protocol } from '../shared/models/protocol';
 import { Signal } from '../shared/models/signal';
@@ -12,11 +13,13 @@ export class ManagerService {
 
   constructor(private http: HttpClient) {}
 
-  getSignals(protocolId?: number, sort?: string) {
+  getSignals(managerParams: ManagerParams) {
     let params = new HttpParams();
 
-    if (protocolId) params = params.append('protocolId', protocolId);
-    if (sort) params = params.append('sort', sort);
+    if (managerParams.protocolId > 0) params = params.append('protocolId', managerParams.protocolId);
+    params = params.append('sort', managerParams.sort);
+    params = params.append('pageIndex', managerParams.pageIndex);
+    params = params.append('pageSize', managerParams.pageSize);
 
     return this.http.get<Pagination<Signal[]>>(
       this.baseUrl + 'signals', { params }
