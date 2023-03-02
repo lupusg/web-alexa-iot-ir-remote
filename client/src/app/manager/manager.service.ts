@@ -20,6 +20,7 @@ export class ManagerService {
     params = params.append('sort', managerParams.sort);
     params = params.append('pageIndex', managerParams.pageIndex);
     params = params.append('pageSize', managerParams.pageSize);
+    if (managerParams.search) params = params.append('search', managerParams.search);
 
     return this.http.get<Pagination<Signal[]>>(
       this.baseUrl + 'signals', { params }

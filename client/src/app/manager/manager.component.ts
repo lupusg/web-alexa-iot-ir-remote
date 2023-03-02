@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ManagerParams } from '../shared/models/managerParams';
 import { Protocol } from '../shared/models/protocol';
 import { Signal } from '../shared/models/signal';
@@ -10,6 +10,7 @@ import { ManagerService } from './manager.service';
   styleUrls: ['./manager.component.scss'],
 })
 export class ManagerComponent implements OnInit {
+  @ViewChild('search') searchTerm?: ElementRef;
   signals: Signal[] = [];
   protocols: Protocol[] = [];
   managerParams = new ManagerParams();
@@ -55,16 +56,27 @@ export class ManagerComponent implements OnInit {
     this.getSignals();
   }
 
-  onSortSelected($event: any) {
-    this.managerParams.sort = $event.target.value;
-    console.log($event.target.value);
+  onSortSelected(event: any) {
+    this.managerParams.sort = event.target.value;
+    console.log(event.target.value);
     this.getSignals();
   }
 
-  onPageChanged($event: any) {
-    if (this.managerParams.pageIndex !== $event) {
-      this.managerParams.pageIndex = $event.page;
+  onPageChanged(event: any) {
+    if (this.managerParams.pageIndex !== event) {
+      this.managerParams.pageIndex = event;
       this.getSignals();
     }
+  }
+
+  onSearch() {
+    this.managerParams.search = this.searchTerm?.nativeElement.value;
+    this.getSignals();
+  }
+
+  onReset() {
+    if(this.searchTerm) this.searchTerm.nativeElement.value = '';
+    this.managerParams = new ManagerParams();
+    this.getSignals();
   }
 }
