@@ -53,6 +53,7 @@ export class ManagerComponent implements OnInit {
 
   onProtocolSelected(protocolId: number) {
     this.managerParams.protocolId = protocolId;
+    this.managerParams.pageIndex = 1;
     this.getSignals();
   }
 
@@ -71,6 +72,7 @@ export class ManagerComponent implements OnInit {
 
   onSearch() {
     this.managerParams.search = this.searchTerm?.nativeElement.value;
+    this.managerParams.pageIndex = 1;
     this.getSignals();
   }
 
