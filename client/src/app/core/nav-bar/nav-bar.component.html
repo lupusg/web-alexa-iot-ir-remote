@@ -2,9 +2,12 @@
   <div class="container"><a class="navbar-brand d-flex align-items-center" href="#"><span>AIIR Manager</span></a><button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navcol-5"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
       <div id="navcol-5" class="collapse navbar-collapse">
           <ul class="navbar-nav mx-auto text-uppercase">
-              <li class="nav-item"><a class="nav-link active" href="#">Signals</a></li>
-              <li class="nav-item"><a class="nav-link" href="#">Second Item</a></li>
-              <li class="nav-item"><a class="nav-link" href="#">Third Item</a></li>
+              <li class="nav-item"><a class="nav-link active" 
+                routerLink="/" 
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{exact: true}">Home</a></li>
+              <li class="nav-item"><a class="nav-link" routerLink="/manager" routerLinkActive="active">Manager</a></li>
+              <li class="nav-item"><a class="nav-link" routerLink="/teas" routerLinkActive="active">Third Item</a></li>
           </ul><a class="btn btn-primary ms-md-2" role="button" href="#">Login</a><a class="btn btn-primary ms-md-2" role="button" href="#">Sign up</a>
       </div>
   </div>
