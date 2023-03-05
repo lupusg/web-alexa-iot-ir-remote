@@ -1,8 +1,9 @@
 <ng-container *ngIf="signal">
-  <td>{{ signal.id}}</td>
+  <td>{{ signal.id }}</td>
   <td>{{ signal.name }}</td>
   <td>{{ signal.irData }}</td>
   <td>{{ signal.assignedButton }}</td>
   <td>{{ signal.createdAt }}</td>
   <td>{{ signal.signalProtocol }}</td>
+  <a class="mt-0 pt-3" routerLink="/signal/{{signal.id}}">View</a>
 </ng-container>

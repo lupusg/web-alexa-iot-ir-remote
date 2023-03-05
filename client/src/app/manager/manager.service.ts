@@ -27,6 +27,10 @@ export class ManagerService {
     );
   }
 
+  getSignal(id: number) {
+    return this.http.get<Signal>(this.baseUrl + 'signals/' + id);
+  }
+
   getProtocols() {
     return this.http.get<Protocol[]>(this.baseUrl + 'signals/protocols');
   }
