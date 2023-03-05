@@ -5,6 +5,7 @@ import { SignalItemComponent } from './signal-item/signal-item.component';
 import { SharedModule } from '../shared/shared.module';
 import { SignalDetailsComponent } from './signal-details/signal-details.component';
 import { RouterModule } from '@angular/router';
+import { ManagerRoutingModule } from './manager-routing.module';
 
 @NgModule({
   declarations: [
@@ -15,10 +16,7 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     SharedModule,
-    RouterModule,
-  ],
-  exports: [
-    ManagerComponent
+    ManagerRoutingModule
   ]
 })
 export class ManagerModule { }
