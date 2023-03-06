@@ -1,0 +1,35 @@
+<div class="container-sm my-5" *ngIf="signal">
+  <h1 class="mb-3">Edit Signal</h1>
+
+  <div class="row">
+    <div class="col-6">
+      <form>
+        <div class="mb-3">
+          <label for="id" class="form-label">Id</label>
+          <input type="text" value="{{signal.id}}" class="form-control" id="id" readonly>
+        </div>
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" value="{{signal.name}}" class="form-control" id="name" name="name" readonly/>
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlTextarea1" class="form-label">Data</label>
+          <textarea class="form-control" value="{{signal.irData}}" id="data" rows="3" name="data" readonly></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="name" class="form-label">Assigned Button</label>
+          <input type="text" value="{{signal.assignedButton}}" class="form-control" readonly/>
+        </div>
+        <div class="mb-3">
+          <label for="name" class="form-label">Created at</label>
+          <input type="text" value="{{signal.createdAt}}" class="form-control" readonly/>
+        </div>
+        <div class="mb-3">
+          <label for="name" class="form-label">Protocol</label>
+          <input type="text" value="{{signal.signalProtocol}}" class="form-control" readonly/>
+        </div>
+        <!-- <button type="submit" class="btn btn-primary me-2">Save</button> -->
+        <!-- <button type="button" class="btn btn-danger" >Delete</button> -->
+      </form>
+    </div>
+  </div>
