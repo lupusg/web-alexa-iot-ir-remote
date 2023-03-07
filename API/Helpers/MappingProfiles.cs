@@ -1,6 +1,7 @@
 using API.Dto;
 using AutoMapper;
 using Core.Entities;
+using Core.Entities.Identity;
 
 namespace API.Helpers
 {
@@ -10,6 +11,9 @@ namespace API.Helpers
         {
             CreateMap<Signal, SignalToReturnDto>()
                 .ForMember(s => s.SignalProtocol, o => o.MapFrom(s => s.SignalProtocol.Name));
+
+            CreateMap<Address, AddressDto>().ReverseMap();
+
         }
     }
 }
