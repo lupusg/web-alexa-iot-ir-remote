@@ -22,9 +22,10 @@ namespace API.Controllers
             _signalsRepo = signalsRepo;
             _signalProtocolsRepo = signalProtocolsRepo;
         }
-
+        
+        [Cached(600)]
         [HttpGet]
-        public async Task<ActionResult<Pagination<SignalToReturnDto>>> GetSignal(
+        public async Task<ActionResult<Pagination<SignalToReturnDto>>> GetSignals(
             [FromQuery] SignalsSpecParams signalParams)
         {
             var spec = new SignalsWithProtocolsSpecification(signalParams);
@@ -41,6 +42,7 @@ namespace API.Controllers
                 signalParams.PageSize, totalItems, data));
         }
 
+        [Cached(600)]
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status404NotFound)]
@@ -58,6 +60,7 @@ namespace API.Controllers
             return _mapper.Map<Signal, SignalToReturnDto>(signal);
         }
 
+        [Cached(600)]
         [HttpGet("protocols")]
         public async Task<ActionResult<List<SignalProtocol>>> GetSignalProtocols()
         {
