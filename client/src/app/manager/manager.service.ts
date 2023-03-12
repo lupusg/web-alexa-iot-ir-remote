@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ManagerParams } from '../shared/models/managerParams';
 import { Pagination } from '../shared/models/pagination';
@@ -23,7 +23,7 @@ export class ManagerService {
     if (managerParams.search) params = params.append('search', managerParams.search);
 
     return this.http.get<Pagination<Signal[]>>(
-      this.baseUrl + 'signals', { params }
+      this.baseUrl + 'signals', {params} 
     );
   }
 

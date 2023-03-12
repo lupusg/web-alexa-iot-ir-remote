@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AccountService } from './account/account.service';
 
 @Component({
   selector: 'app-root',
@@ -7,8 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
   title = 'client';
-  constructor() {}
+  constructor(private accountService: AccountService) {}
 
   ngOnInit(): void {
+    this.loadCurrentUser();
+  }
+
+  loadCurrentUser() {
+    const token = localStorage.getItem('token');
+    if(token) this.accountService.loadCurrentUser(token).subscribe();
   }
 }
