@@ -5,6 +5,7 @@ using AutoMapper;
 using Core.Entities;
 using Core.Interfaces;
 using Core.Specifications;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
@@ -22,8 +23,8 @@ namespace API.Controllers
             _signalsRepo = signalsRepo;
             _signalProtocolsRepo = signalProtocolsRepo;
         }
-        
-        [Cached(600)]
+
+        // [Cached(600)]
         [HttpGet]
         public async Task<ActionResult<Pagination<SignalToReturnDto>>> GetSignals(
             [FromQuery] SignalsSpecParams signalParams)
@@ -42,7 +43,7 @@ namespace API.Controllers
                 signalParams.PageSize, totalItems, data));
         }
 
-        [Cached(600)]
+        // [Cached(600)]
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status404NotFound)]
@@ -67,6 +68,43 @@ namespace API.Controllers
             var signalProtocols = await _signalProtocolsRepo.ListAllAsync();
 
             return Ok(signalProtocols);
+        }
+
+        [HttpPut("{id}")]
+        [Authorize]
+        public async Task<ActionResult<SignalToReturnDto>> UpdateSignal([FromRoute] int id, [FromBody] SignalDto updateSignal)
+        {
+            var spec = new SignalsWithProtocolsSpecification(id);
+
+            var signal = await _signalsRepo.GetEntityWithSpec(spec);
+
+            if (signal == null)
+            {
+                return NotFound(new ApiResponse(404));
+            }
+
+            _signalsRepo.Update(_mapper.Map<SignalDto, Signal>(updateSignal, signal));
+
+            await _signalsRepo.SaveAsync();
+                //_mapper.Map<Signal, SignalToReturnDto>(signal)
+            return Ok();
+        }
+
+        [HttpDelete("{id}")]
+        [Authorize]
+        public async Task<ActionResult> DeleteSignal([FromRoute] int id)
+        {
+            var signal = await _signalsRepo.GetByIdAsync(id);
+
+            if(signal == null)
+            {
+                return NotFound(new ApiResponse(404));
+            }
+
+            _signalsRepo.Delete(signal);
+            await _signalsRepo.SaveAsync();
+
+            return Ok();
         }
     }
 }
