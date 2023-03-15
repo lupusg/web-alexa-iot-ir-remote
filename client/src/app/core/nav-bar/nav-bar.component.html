@@ -12,7 +12,6 @@
         <li class="nav-item"><a class="nav-link active" routerLink="/" routerLinkActive="active"
             [routerLinkActiveOptions]="{exact: true}">Home</a></li>
         <li class="nav-item"><a class="nav-link" routerLink="/manager" routerLinkActive="active">Manager</a></li>
-        <li class="nav-item"><a class="nav-link" routerLink="/test-error" routerLinkActive="active">Errors</a></li>
       </ul>
       <ng-container *ngIf="(accountService.currentUser$ | async) === null">
         <a class="btn btn-primary ms-md-2" role="button" routerLink="/account/login">Login</a>
