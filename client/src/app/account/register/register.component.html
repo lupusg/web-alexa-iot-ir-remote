@@ -16,19 +16,27 @@
     class="d-flex flex-row align-items-center register-box-seperator-container"
   ></div>
   <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-    <app-text-input
-      [formControl]="registerForm.controls['displayName']"
-      [label]="'Display Name'"
-    ></app-text-input>
-    <app-text-input
-      [formControl]="registerForm.controls['email']"
-      [label]="'Email'"
-    ></app-text-input>
-    <app-text-input
-      [formControl]="registerForm.controls['password']"
-      [type]="'password'"
-      [label]="'Password'"
-    ></app-text-input>
+    <div class="py-3 px-3">
+      <div class="mb-3">
+        <app-text-input
+          [formControl]="registerForm.controls['displayName']"
+          [label]="'Display Name'"
+        ></app-text-input>
+      </div>
+      <div class="mb-3">
+        <app-text-input
+          [formControl]="registerForm.controls['email']"
+          [label]="'Email'"
+        ></app-text-input>
+      </div>
+      <div>
+        <app-text-input
+          [formControl]="registerForm.controls['password']"
+          [type]="'password'"
+          [label]="'Password'"
+        ></app-text-input>
+      </div>
+    </div>
 
     <ul>
       <li class="text-danger list-unstyled" *ngFor="let error of errors">
@@ -68,7 +76,9 @@
     style="padding: 10px 20px; padding-bottom: 23px; padding-top: 18px"
   >
     <p>
-      Already have an account?<a id="register-link" routerLink="/account/login">Login!</a>
+      Already have an account?<a id="register-link" routerLink="/account/login"
+        >Login!</a
+      >
     </p>
   </div>
 </div>
