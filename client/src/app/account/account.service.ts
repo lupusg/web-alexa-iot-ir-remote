@@ -29,6 +29,10 @@ export class AccountService {
     );
   }
 
+  isLoggedIn() {
+    return this.currentUserSource.value ? true : false;
+  }
+  
   login(values: any) {
     return this.http.post<User>(this.baseUrl + 'account/login', values).pipe(
       map((user) => {
