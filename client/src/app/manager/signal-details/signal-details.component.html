@@ -5,34 +5,40 @@
     <div class="col-6">
       <form [formGroup]="signalForm" (ngSubmit)="updateSignal()">
         <label>Id</label>
-        <input class="form-control" value="{{signal.id}}" readonly>
+        <input class="form-control" value="{{ signal.id }}" readonly />
+          <label class="mt-3">Name</label>
+          <app-text-input
+            [formControl]="signalForm.controls['name']"
+          ></app-text-input>
 
-        <label class="mt-3">Name</label>
-        <app-text-input
-          [formControl]="signalForm.controls['name']"
-        ></app-text-input>
+          <label class="mt-3">Infrared Data</label>
+          <textarea
+            class="form-control"
+            [formControl]="signalForm.controls['irData']"
+          ></textarea>
 
-        <label class="mt-3">Infrared Data</label>
-        <textarea class="form-control"
-          [formControl]="signalForm.controls['irData']"
-        ></textarea>
+          <label class="mt-3">Crated at</label>
+          <app-text-input
+            [formControl]="signalForm.controls['createdAt']"
+          ></app-text-input>
 
-        <label class="mt-3">Crated at</label>
-        <app-text-input
-          [formControl]="signalForm.controls['createdAt']"
-        ></app-text-input>
+          <label class="mt-3">Assigned button</label>
+          <app-text-input
+            [formControl]="signalForm.controls['assignedButton']"
+          ></app-text-input>
+          <label class="mt-3">Protocol</label>
+        <input
+          class="form-control mb-4"
+          value="{{ signal.signalProtocol }}"
+          readonly
+        />
 
-        <label class="mt-3">Assigned button</label>
-        <app-text-input
-          [formControl]="signalForm.controls['assignedButton']"
-        ></app-text-input>
-        <label class="mt-3">Protocol</label>
-        <input class="form-control mb-4" value="{{signal.signalProtocol}}" readonly>
-        
-        <button type="submit" class="btn btn-primary me-2">Save</button>
-        <button type="button" class="btn btn-danger" (click)="deleteSignal()">
-          Delete
-        </button>
+        <ng-container *ngIf="(accountService.currentUser$ | async) !== null">
+          <button type="submit" class="btn btn-primary me-2">Save</button>
+          <button type="button" class="btn btn-danger" (click)="deleteSignal()">
+            Delete
+          </button>
+        </ng-container>
       </form>
     </div>
   </div>
