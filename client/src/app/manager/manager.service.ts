@@ -34,4 +34,12 @@ export class ManagerService {
   getProtocols() {
     return this.http.get<Protocol[]>(this.baseUrl + 'signals/protocols');
   }
+
+  editSignal(id: any, values: any) {
+    return this.http.put(this.baseUrl + 'signals/' + id, values);
+  }
+
+  deleteSignal(id?: number) {
+    return this.http.delete(this.baseUrl + 'signals/' + id);
+  }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { FormControl, FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Signal } from 'src/app/shared/models/signal';
 import { ManagerService } from '../manager.service';
 
@@ -10,9 +11,15 @@ import { ManagerService } from '../manager.service';
 })
 export class SignalDetailsComponent implements OnInit {
   signal?: Signal;
+  signalForm = new FormGroup({
+    name: new FormControl(''),
+    irData: new FormControl(''),
+    assignedButton: new FormControl(''),
+    createdAt: new FormControl(''),
+  });
 
   constructor(private managerService: ManagerService,
-    private activatedRoute: ActivatedRoute) { }
+    private activatedRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.loadSignal();
@@ -21,7 +28,24 @@ export class SignalDetailsComponent implements OnInit {
   loadSignal() {
     const id = this.activatedRoute.snapshot.paramMap.get('id');
     if (id) this.managerService.getSignal(+id).subscribe({
-      next: signal => this.signal = signal,
+      next: signal => {
+        this.signalForm.patchValue(signal)
+        this.signal = signal;
+      },
+      error: error => console.log(error)
+    })
+  }
+
+  updateSignal() {
+    this.managerService.editSignal(this.signal?.id, this.signalForm.value).subscribe({
+      next: () => {this.router.navigateByUrl('/manager')},
+      error: error => console.log(error)
+    })
+  }
+
+  deleteSignal() {
+    this.managerService.deleteSignal().subscribe({
+      next: () => {this.router.navigateByUrl('/manager')},
       error: error => console.log(error)
     })
   }
