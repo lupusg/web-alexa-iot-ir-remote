@@ -478,3 +478,5 @@ $RECYCLE.BIN/
 API/appsettings.json
 client/src/environments/environment.ts
 client/src/environments/environment.prod.ts
+.vscode/settings.json
+API/wwwroot
