@@ -61,7 +61,7 @@ namespace API.Controllers
             return _mapper.Map<Signal, SignalToReturnDto>(signal);
         }
 
-        [Cached(600)]
+        // [Cached(600)]
         [HttpGet("protocols")]
         public async Task<ActionResult<List<SignalProtocol>>> GetSignalProtocols()
         {

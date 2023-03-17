@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { ManagerParams } from '../shared/models/managerParams';
 import { Pagination } from '../shared/models/pagination';
 import { Protocol } from '../shared/models/protocol';
@@ -9,7 +10,7 @@ import { Signal } from '../shared/models/signal';
   providedIn: 'root',
 })
 export class ManagerService {
-  baseUrl = 'https://localhost:5001/api/';
+  baseUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) {}
 

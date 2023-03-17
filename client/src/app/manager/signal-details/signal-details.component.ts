@@ -58,7 +58,7 @@ export class SignalDetailsComponent implements OnInit {
   }
 
   deleteSignal() {
-    this.managerService.deleteSignal().subscribe({
+    this.managerService.deleteSignal(this.signal?.id).subscribe({
       next: () => {
         this.router.navigateByUrl('/manager');
       },

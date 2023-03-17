@@ -1,6 +1,6 @@
 export class ManagerParams {
   protocolId = 0;
-  sort = 'dateDesc'
+  sort = 'dateAsc'
   pageIndex = 1;
   pageSize = 10;
   search = '';
