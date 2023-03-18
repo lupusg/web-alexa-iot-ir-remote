@@ -21,22 +21,6 @@ namespace Infrastructure.Data.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("Core.Entities.Protocol", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Name")
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("SignalProtocols");
-                });
-
             modelBuilder.Entity("Core.Entities.Signal", b =>
                 {
                     b.Property<int>("Id")
@@ -67,9 +51,25 @@ namespace Infrastructure.Data.Migrations
                     b.ToTable("Signals");
                 });
 
+            modelBuilder.Entity("Core.Entities.SignalProtocol", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SignalProtocols");
+                });
+
             modelBuilder.Entity("Core.Entities.Signal", b =>
                 {
-                    b.HasOne("Core.Entities.Protocol", "SignalProtocol")
+                    b.HasOne("Core.Entities.SignalProtocol", "SignalProtocol")
                         .WithMany()
                         .HasForeignKey("SignalProtocolId")
                         .OnDelete(DeleteBehavior.Cascade)
