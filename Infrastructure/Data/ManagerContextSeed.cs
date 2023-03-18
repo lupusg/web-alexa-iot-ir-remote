@@ -10,12 +10,12 @@ namespace Infrastructure.Data
         {
             var path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
-            if (!context.Signals.Any())
-            {
-                var signalsData = File.ReadAllText(path + @"/Data/SeedData/signals.json");
-                var signals = JsonSerializer.Deserialize<List<Signal>>(signalsData);
-                context.Signals.AddRange(signals);
-            }
+            // if (!context.Signals.Any())
+            // {
+            //     var signalsData = File.ReadAllText(path + @"/Data/SeedData/signals.json");
+            //     var signals = JsonSerializer.Deserialize<List<Signal>>(signalsData);
+            //     context.Signals.AddRange(signals);
+            // }
 
             if(!context.SignalProtocols.Any())
             {
