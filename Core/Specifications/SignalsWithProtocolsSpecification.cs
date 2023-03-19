@@ -17,6 +17,12 @@ namespace Core.Specifications
             {
                 switch (signalParams.Sort)
                 {
+                    case "idAsc":
+                        AddOrderBy(x => x.Id);
+                        break;
+                    case "idDesc":
+                        AddOrderByDescending(x => x.Id);
+                        break;
                     case "nameAsc":
                         AddOrderBy(x => x.Name);
                         break;

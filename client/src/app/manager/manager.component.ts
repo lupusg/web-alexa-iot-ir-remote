@@ -15,12 +15,14 @@ export class ManagerComponent implements OnInit {
   protocols: Protocol[] = [];
   managerParams = new ManagerParams();
   sortOptions = [
+    { name: 'Id', value: 'idAsc' },
+    { name: 'Id descendent', value: 'idDesc' },
     { name: 'Alphabetical', value: 'nameAsc' },
     { name: 'Alphabetical descendent', value: 'nameDesc' },
-    { name: 'Protocol', value: 'protocolAsc' },
-    { name: 'Protocol descendent', value: 'protocolDesc' },
     { name: 'New', value: 'dateDesc' },
     { name: 'Old', value: 'dateAsc' },
+    { name: 'Protocol', value: 'protocolAsc' },
+    { name: 'Protocol descendent', value: 'protocolDesc' },
   ];
   totalCount = 0;
 
