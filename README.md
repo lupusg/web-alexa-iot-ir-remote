@@ -1,7 +1,7 @@
 
 # Web Alexa IoT Infrared Remote
 
-This is a web application built using .NET 7.0 and Angular 15, designed to manage infrared signals and bind those signals to a specific alexa compatible switch so the user can use the voice activation to send ir signals to their devices.
+This is a web application built using .NET 7.0 and Angular 15, designed to manage infrared signals and bind those signals to a specific alexa compatible switch so the user can use the voice activation to send ir signals to their devices. See [diagram](https://i.imgur.com/noVu3ln.png).
 
 The signals displayed in the application are retrieved from a NodeMCU microcontroller, which is responsible for receiving and sending the infrared signals.
 
