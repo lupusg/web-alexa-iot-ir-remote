@@ -27,6 +27,7 @@
             [formControl]="signalForm.controls['assignedButton']" 
             class="form-control">
             <option hidden>{{signal.assignedButton}}</option>
+            <option>n/a</option>
             <option
              *ngFor="let switchId of customSwitches">custom_switch{{switchId}}</option>
           </select>
