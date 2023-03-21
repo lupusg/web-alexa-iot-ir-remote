@@ -19,6 +19,7 @@ export class SignalDetailsComponent implements OnInit {
     assignedButton: new FormControl(''),
     createdAt: new FormControl(''),
   });
+  customSwitches = Array(20).fill(0).map((x, i) => i + 1);
 
   constructor(
     private managerService: ManagerService,

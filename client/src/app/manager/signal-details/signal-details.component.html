@@ -23,9 +23,13 @@
           ></app-text-input>
 
           <label class="mt-3">Assigned button</label>
-          <app-text-input
+          <!-- <app-text-input
             [formControl]="signalForm.controls['assignedButton']"
-          ></app-text-input>
+          ></app-text-input> -->
+          <select [formControl]="signalForm.controls['assignedButton']" class="form-control">
+            <option
+             *ngFor="let switchId of customSwitches">custom_switch{{switchId}}</option>
+          </select>
           <label class="mt-3">Protocol</label>
         <input
           class="form-control mb-4"
