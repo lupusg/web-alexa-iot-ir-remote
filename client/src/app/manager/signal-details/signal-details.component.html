@@ -17,14 +17,14 @@
             [formControl]="signalForm.controls['irData']"
           ></textarea>
 
-          <label class="mt-3">Crated at</label>
+          <label class="mt-3">Created at</label>
           <app-text-input
             [formControl]="signalForm.controls['createdAt']"
           ></app-text-input>
 
           <label class="mt-3">Assigned button</label>
-          <select 
-            [formControl]="signalForm.controls['assignedButton']" 
+          <select
+            [formControl]="signalForm.controls['assignedButton']"
             class="form-control">
             <option hidden>{{signal.assignedButton}}</option>
             <option>n/a</option>
@@ -32,11 +32,11 @@
              *ngFor="let switchId of customSwitches">custom_switch{{switchId}}</option>
           </select>
           <label class="mt-3">Protocol</label>
-        <input
-          class="form-control mb-4"
-          value="{{ signal.signalProtocol }}"
-          readonly
-        />
+          <select
+            [formControl]="signalForm.controls['signalProtocolId']"
+            class="form-control mb-4">
+            <option *ngFor="let protocol of protocols" value="{{protocol.id}}">{{protocol.name}}</option>
+          </select>
 
         <ng-container *ngIf="(accountService.currentUser$ | async) !== null">
           <button type="submit" class="btn btn-primary me-2">Save</button>

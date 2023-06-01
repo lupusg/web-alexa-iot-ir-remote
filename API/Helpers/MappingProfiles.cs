@@ -14,8 +14,8 @@ namespace API.Helpers
 
             CreateMap<Address, AddressDto>().ReverseMap();
             CreateMap<SignalDto, Signal>()
-                .ForMember(s => s.SignalProtocol, o => o.Ignore())
-                .ForMember(s => s.SignalProtocolId, o => o.Ignore());
+                .ForMember(s => s.SignalProtocol, o => o.Ignore());
+            // .ForMember(s => s.SignalProtocolId, o => o.Ignore());
         }
     }
 }

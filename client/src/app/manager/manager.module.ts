@@ -17,6 +17,6 @@ import { ManagerRoutingModule } from './manager-routing.module';
     CommonModule,
     SharedModule,
     ManagerRoutingModule
-  ]
+  ],
 })
 export class ManagerModule { }

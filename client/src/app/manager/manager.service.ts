@@ -11,7 +11,6 @@ import { Signal } from '../shared/models/signal';
 })
 export class ManagerService {
   baseUrl = environment.apiUrl;
-
   constructor(private http: HttpClient) {}
 
   getSignals(managerParams: ManagerParams) {
@@ -24,7 +23,7 @@ export class ManagerService {
     if (managerParams.search) params = params.append('search', managerParams.search);
 
     return this.http.get<Pagination<Signal[]>>(
-      this.baseUrl + 'signals', {params} 
+      this.baseUrl + 'signals', {params}
     );
   }
 
@@ -37,6 +36,7 @@ export class ManagerService {
   }
 
   editSignal(id: any, values: any) {
+    console.log(values);
     return this.http.put(this.baseUrl + 'signals/' + id, values);
   }
 

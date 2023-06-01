@@ -10,6 +10,7 @@ import { ManagerModule } from './manager/manager.module';
 import { HomeModule } from './home/home.module';
 import { ErrorInterceptor } from './core/interceptors/error.interceptor';
 import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
+import { ManagerComponent } from './manager/manager.component';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,7 +24,8 @@ import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    ManagerComponent
   ],
   bootstrap: [AppComponent],
 })

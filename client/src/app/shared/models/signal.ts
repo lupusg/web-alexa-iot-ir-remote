@@ -5,4 +5,5 @@ export interface Signal {
   assignedButton: string;
   createdAt: string;
   signalProtocol: string;
+  signalProtocolId: string;
 }

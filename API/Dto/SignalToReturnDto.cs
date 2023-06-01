@@ -11,5 +11,6 @@ namespace API.Dto
         public string CreatedAt { get; set; }
 
         public string SignalProtocol { get; set; }
+        public int SignalProtocolId { get; set; }
     }
 }
