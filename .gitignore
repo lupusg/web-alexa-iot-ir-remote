@@ -481,3 +481,4 @@ client/src/environments/environment.prod.ts
 .vscode/settings.json
 API/wwwroot
 Infrastructure/Identity/AppIdentityDbContextSeed.cs
+API/appsettings.Development.json
